@@ -1,29 +1,22 @@
 const images = [
-    {
-      url: 'https://images.pexels.com/photos/140134/pexels-photo-140134.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
-      alt: 'White and Black Long Fur Cat',
-    },
-    {
-      url: 'https://images.pexels.com/photos/213399/pexels-photo-213399.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
-      alt: 'Orange and White Koi Fish Near Yellow Koi Fish',
-    },
-    {
-      url: 'https://images.pexels.com/photos/219943/pexels-photo-219943.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
-      alt: 'Group of Horses Running',
-    },
-  ];
-  
-  function createGallery(images){
-const ulGallery  = document.querySelector('#gallery');
-ulGallery.classList.add('list')
-const markUpString = images.reduce((string,image)=>(string + 
-  `<li>
-  <img class = "item_img"
-  src = '${image.url}'
-  alt = '${image.alt}'
-  width = "400">
-  <li>,`),'');
+  {
+    url: 'https://images.pexels.com/photos/140134/pexels-photo-140134.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
+    alt: 'White and Black Long Fur Cat',
+  },
+  {
+    url: 'https://images.pexels.com/photos/213399/pexels-photo-213399.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
+    alt: 'Orange and White Koi Fish Near Yellow Koi Fish',
+  },
+  {
+    url: 'https://images.pexels.com/photos/219943/pexels-photo-219943.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
+    alt: 'Group of Horses Running',
+  },
+];
 
- ulGallery.insertAdjacentHTML("beforebegin",markUpString);
-  };
- 
+const list = document.querySelector('#gallery');
+for (let i = 0; i != images.length; i++) {
+  list.insertAdjacentHTML(
+    'afterbegin',
+    `<li> <img url=\"${images[i].url}\" alt=\"${images[i].alt}\"> </li>`
+  );
+}
